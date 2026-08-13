@@ -1,0 +1,1146 @@
+```php
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sehat Indonesia</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f8f8;
+            color: #333;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #007f7b,
+                #00a99d,
+                #32c6d1
+            );
+
+            color: white;
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+
+            background: white;
+            color: #008b87;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo-text h2 {
+            font-size: 22px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .slogan {
+            font-size: 20px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            background: white;
+
+            padding: 15px 8%;
+
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #009b91;
+        }
+
+
+        /* =========================
+           HERO / BANNER
+        ========================= */
+
+        .hero {
+            width: 84%;
+            min-height: 350px;
+
+            margin: 30px auto;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(0, 112, 108, 0.95),
+                    rgba(0, 174, 160, 0.78),
+                    rgba(49, 194, 211, 0.60)
+                );
+
+            display: flex;
+            align-items: center;
+
+            padding: 55px;
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            background: rgba(255,255,255,0.12);
+
+            border-radius: 50%;
+
+            right: -100px;
+            top: -120px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background: white;
+            color: #008b87;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 84%;
+            margin: auto;
+        }
+
+
+        /* =========================
+           JUDUL
+        ========================= */
+
+        .section-title {
+            text-align: center;
+
+            margin: 45px 0 25px;
+
+            font-size: 27px;
+
+            background: linear-gradient(
+                90deg,
+                #008b87,
+                #00b8a9,
+                #36bfd2
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-description {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: -10px auto 30px;
+
+            color: #777;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CARD LAYANAN
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 30px 20px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+            border-top: 4px solid transparent;
+
+            border-image:
+                linear-gradient(
+                    90deg,
+                    #008b87,
+                    #35c7d3
+                ) 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: auto auto 18px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d7f8f4,
+                    #d9f6fa
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+        }
+
+        .card h3 {
+            color: #008b87;
+
+            margin-bottom: 10px;
+
+            font-size: 18px;
+        }
+
+        .card p {
+            color: #777;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           BERITA
+        ========================= */
+
+        .news-section {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr;
+
+            gap: 25px;
+
+            margin-top: 20px;
+        }
+
+        .news-container,
+        .announcement {
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .news-container h2,
+        .announcement h2 {
+            color: #008b87;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 2px solid #e5eeee;
+        }
+
+        .news {
+            display: flex;
+
+            gap: 20px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .news:last-child {
+            border-bottom: none;
+        }
+
+        .news-image {
+            width: 150px;
+            height: 100px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008b87,
+                    #36c6d2
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 35px;
+
+            flex-shrink: 0;
+        }
+
+        .news h3 {
+            margin-bottom: 8px;
+
+            color: #333;
+
+            font-size: 17px;
+        }
+
+        .news p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .date {
+            color: #009d93;
+
+            font-size: 12px;
+
+            margin-bottom: 6px;
+        }
+
+
+        /* =========================
+           PENGUMUMAN
+        ========================= */
+
+        .announcement-item {
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .announcement-item:last-child {
+            border-bottom: none;
+        }
+
+        .announcement-item h4 {
+            color: #333;
+
+            margin-bottom: 6px;
+        }
+
+        .announcement-item p {
+            font-size: 13px;
+
+            color: #777;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           TENTANG
+        ========================= */
+
+        .about {
+            margin-top: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #007f7b,
+                    #00aa9e,
+                    #35c5d1
+                );
+
+            color: white;
+
+            border-radius: 18px;
+
+            padding: 45px;
+
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            max-width: 800px;
+
+            margin: auto;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 50px;
+
+            background: #075f5d;
+
+            color: white;
+
+            padding: 35px 8%;
+        }
+
+        .footer-content {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            color: #d5eeee;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .footer-content a {
+            display: block;
+
+            text-decoration: none;
+
+            color: #d5eeee;
+
+            margin-bottom: 10px;
+
+            font-size: 14px;
+        }
+
+        .footer-content a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.2);
+
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            font-size: 13px;
+
+            color: #cce8e7;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .cards {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .news-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero {
+                width: 92%;
+                padding: 35px 25px;
+            }
+
+            .hero-content h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .news {
+                flex-direction: column;
+            }
+
+            .news-image {
+                width: 100%;
+            }
+
+            .slogan {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✚
+            </div>
+
+            <div class="logo-text">
+                <h2>SEHAT INDONESIA</h2>
+
+                <p>
+                    Informasi Kesehatan Masyarakat
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="slogan">
+            Generasi Sehat, Masa Depan Hebat
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <a href="#beranda">
+            🏠 BERANDA
+        </a>
+
+        <a href="#tentang">
+            ℹ TENTANG
+        </a>
+
+        <a href="#layanan">
+            ✓ LAYANAN
+        </a>
+
+        <a href="#berita">
+            📰 BERITA
+        </a>
+
+        <a href="#pengumuman">
+            📢 PENGUMUMAN
+        </a>
+
+        <a href="#kontak">
+            ☎ KONTAK
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <h1>
+                Informasi Kesehatan
+                Untuk Indonesia
+                Yang Lebih Sehat
+            </h1>
+
+            <p>
+                Temukan berbagai informasi,
+                layanan, berita, dan edukasi
+                kesehatan untuk membantu
+                masyarakat hidup lebih sehat.
+            </p>
+
+            <a href="#layanan" class="hero-button">
+                Jelajahi Layanan →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- LAYANAN -->
+
+        <section id="layanan">
+
+            <h2 class="section-title">
+                LAYANAN KESEHATAN
+            </h2>
+
+            <p class="section-description">
+                Berbagai layanan dan informasi kesehatan
+                yang dapat membantu masyarakat mendapatkan
+                informasi dengan mudah.
+            </p>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🏥
+                    </div>
+
+                    <h3>
+                        Fasilitas Kesehatan
+                    </h3>
+
+                    <p>
+                        Informasi mengenai rumah sakit,
+                        puskesmas, dan fasilitas kesehatan.
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💊
+                    </div>
+
+                    <h3>
+                        Informasi Obat
+                    </h3>
+
+                    <p>
+                        Informasi seputar obat dan
+                        penggunaan yang tepat.
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🩺
+                    </div>
+
+                    <h3>
+                        Konsultasi
+                    </h3>
+
+                    <p>
+                        Mendapatkan informasi dan
+                        edukasi mengenai kesehatan.
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Hidup Sehat
+                    </h3>
+
+                    <p>
+                        Tips dan informasi untuk
+                        menjaga kesehatan tubuh.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- BERITA DAN PENGUMUMAN -->
+
+        <section id="berita">
+
+            <h2 class="section-title">
+                INFORMASI TERKINI
+            </h2>
+
+
+            <div class="news-section">
+
+
+                <!-- BERITA -->
+
+                <div class="news-container">
+
+                    <h2>
+                        📰 Berita Kesehatan
+                    </h2>
+
+
+                    <div class="news">
+
+                        <div class="news-image">
+                            🏥
+                        </div>
+
+                        <div>
+
+                            <div class="date">
+                                13 Agustus 2026
+                            </div>
+
+                            <h3>
+                                Pentingnya Menjaga
+                                Kesehatan Sejak Dini
+                            </h3>
+
+                            <p>
+                                Menjaga kesehatan sejak dini
+                                dapat membantu meningkatkan
+                                kualitas hidup dan mencegah
+                                berbagai penyakit.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="news">
+
+                        <div class="news-image">
+                            🥗
+                        </div>
+
+                        <div>
+
+                            <div class="date">
+                                10 Agustus 2026
+                            </div>
+
+                            <h3>
+                                Pola Hidup Sehat
+                                untuk Masyarakat
+                            </h3>
+
+                            <p>
+                                Menerapkan pola makan sehat,
+                                olahraga teratur, dan istirahat
+                                cukup merupakan bagian penting
+                                dari kehidupan sehat.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="news">
+
+                        <div class="news-image">
+                            🏃
+                        </div>
+
+                        <div>
+
+                            <div class="date">
+                                07 Agustus 2026
+                            </div>
+
+                            <h3>
+                                Manfaat Olahraga
+                                Bagi Kesehatan
+                            </h3>
+
+                            <p>
+                                Aktivitas fisik secara rutin
+                                dapat membantu menjaga
+                                kebugaran tubuh.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PENGUMUMAN -->
+
+                <div class="announcement" id="pengumuman">
+
+                    <h2>
+                        📢 Pengumuman
+                    </h2>
+
+
+                    <div class="announcement-item">
+
+                        <h4>
+                            Informasi Pelayanan
+                        </h4>
+
+                        <p>
+                            Pelayanan informasi kesehatan
+                            tersedia setiap hari kerja.
+                        </p>
+
+                    </div>
+
+
+                    <div class="announcement-item">
+
+                        <h4>
+                            Edukasi Kesehatan
+                        </h4>
+
+                        <p>
+                            Ikuti berbagai kegiatan edukasi
+                            kesehatan untuk masyarakat.
+                        </p>
+
+                    </div>
+
+
+                    <div class="announcement-item">
+
+                        <h4>
+                            Program Kesehatan
+                        </h4>
+
+                        <p>
+                            Dukung program kesehatan untuk
+                            menciptakan masyarakat yang sehat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TENTANG -->
+
+        <section id="tentang">
+
+            <div class="about">
+
+                <h2>
+                    Tentang Sehat Indonesia
+                </h2>
+
+                <p>
+                    Sehat Indonesia merupakan website
+                    informasi yang menyediakan berbagai
+                    informasi mengenai kesehatan,
+                    layanan kesehatan, berita, edukasi,
+                    dan pengumuman untuk masyarakat.
+                    Website ini dibuat dengan tampilan
+                    sederhana, modern, dan mudah digunakan.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="kontak">
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <h3>
+                    SEHAT INDONESIA
+                </h3>
+
+                <p>
+                    Bersama membangun masyarakat
+                    Indonesia yang sehat dan berkualitas.
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Menu
+                </h3>
+
+                <a href="#beranda">
+                    Beranda
+                </a>
+
+                <a href="#tentang">
+                    Tentang
+                </a>
+
+                <a href="#layanan">
+                    Layanan
+                </a>
+
+                <a href="#berita">
+                    Berita
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Kontak
+                </h3>
+
+                <p>
+                    📍 Indonesia
+                </p>
+
+                <p>
+                    ☎ 0800-123-456
+                </p>
+
+                <p>
+                    ✉ info@sehatindonesia.id
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Sehat Indonesia.
+            Semua Hak Dilindungi.
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
+```
