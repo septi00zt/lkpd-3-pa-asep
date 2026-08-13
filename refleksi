@@ -1,0 +1,19 @@
+jawaban refleksi
+
+1. Mengapa branch diperlukan?
+jawaban:Biar kalau mau buat fitur baru atau nyoba-nyoba kodingan, hasilnya nggak langsung ngacak-ngacak kode utama (`main`) yang udah aman. Jadi kodingannya terpisah dulu dan nggak bikin *error* proyek.
+
+
+2.apa keuntungan bekerja pada branch dibanding langsung di main?
+jawaban:
+
+-Proyek utama tetap aman dan *fix* berjalan tanpa kodingan mentah/eksperimen.
+- Kalau kerja kelompok, teman sekelompok bisa ngerjain fitur beda-beda di branch masing-masing tanpa takut kodingannya saling ketimpa (*conflict*).
+- Kalau fitur barunya zonk atau *error*, tinggal hapus branch-nya tanpa ngerusak kodingan asli di `main`.
+
+
+3.Kapan sebaiknya membuat branch baru?
+jawaban:
+- Pas baru mau nambah fitur baru (misal: mau bikin halaman profil, "login*, atau *dashboard*).
+-Pas mau benerin "bug" atau "error" di program.
+-Pas mau coba-coba kodingan baru yang belum tentu dipakai.
